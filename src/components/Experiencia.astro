@@ -1,0 +1,182 @@
+---
+const experiencias = [
+  {
+    cargo: 'Residente em TIC',
+    periodo: 'Março de 2025 - Setembro de 2025',
+    descricao:
+      'Participei do desenvolvimento de um sistema inovador de comunicação baseado em VLC (Visible Light Communication), utilizando Raspberry Pi 4 como receptor. O objetivo do projeto foi criar uma solução de marketing direcionado em supermercados, em que lâmpadas LED transmitem frequências que identificam a localização do cliente dentro da loja.',
+    contribuicoes: [
+      'Implementação de um detector de frequência em Python, capaz de identificar sinais de VLC e filtrar ruídos abaixo de 200 Hz.',
+      'Integração com o Firebase Firestore, registrando em tempo real a localização detectada, ofertas exibidas e histórico de sessão do cliente.',
+      'Desenvolvimento de lógica para mapear frequências recebidas a hotspots do supermercado, permitindo recomendações personalizadas de promoções.',
+      'Colaboração em equipe multidisciplinar, alinhando a solução VLC ao front-end exibido em telas e tablets para os usuários.',
+    ],
+    conclusao:
+      'O projeto proporcionou experiência prática em IoT, comunicação sem fio por luz visível, integração com banco de dados em nuvem e recomendação de conteúdo em tempo real.',
+    tecnologias: ['Python', 'Raspberry Pi 4', 'Firebase Firestore', 'IoT', 'VLC'],
+  },
+  {
+    cargo: 'Bolsista de Iniciação Tecnológica',
+    periodo: '',
+    descricao:
+      'Atuação no desenvolvimento front-end de um aplicativo mobile voltado para mobilidade urbana utilizando Flutter.',
+    contribuicoes: [
+      'Construção de interfaces responsivas e componentes reutilizáveis em Flutter com foco na experiência do usuário (UX).',
+      'Implementação de fluxos de navegação e telas funcionais para consulta e interação em tempo real no aplicativo.',
+      'Alinhamento contínuo com a equipe do projeto para transformar requisitos funcionais em entregas visuais consistentes.',
+    ],
+    tecnologias: ['Flutter', 'Dart', 'Mobile', 'Front-end'],
+  },
+  {
+    cargo: 'Bolsista de Inovação',
+    periodo: '',
+    descricao:
+      'Atuação híbrida no desenvolvimento front-end mobile com Flutter e na sustentação de serviços back-end em Python.',
+    contribuicoes: [
+      'Desenvolvimento e aprimoramento de interfaces mobile multiplataforma utilizando o framework Flutter.',
+      'Manutenção evolutiva e corretiva de endpoints em API desenvolvida em Python.',
+      'Integração entre o aplicativo mobile e os serviços da API REST, garantindo consistência no fluxo de dados.',
+    ],
+    tecnologias: ['Flutter', 'Python', 'API REST', 'Mobile'],
+  },
+  {
+    cargo: 'Estagiário em Desenvolvimento Web',
+    periodo: '',
+    descricao:
+      'Atuei como estagiário em desenvolvimento web em uma empresa, onde desenvolvi soluções utilizando o framework Laravel e realizei manutenção nos sistemas desenvolvidos.',
+    contribuicoes: [
+      'Desenvolvimento de novas funcionalidades e módulos web seguindo a arquitetura MVC do framework Laravel (PHP).',
+      'Manutenção corretiva, refatoração de código e resolução de bugs em sistemas web em produção.',
+      'Manipulação e consultas em bancos de dados relacionais para suporte às regras de negócio das aplicações.',
+    ],
+    tecnologias: ['PHP', 'Laravel', 'SQL', 'Desenvolvimento Web'],
+  },
+];
+---
+
+<section id="experiencia">
+  <h2>Experiência Profissional</h2>
+
+  <div class="timeline">
+    {experiencias.map((exp) => (
+      <article class="exp-card">
+        <div class="cabecalho">
+          <h3>{exp.cargo}</h3>
+          {exp.periodo && <span class="periodo">{exp.periodo}</span>}
+        </div>
+
+        <p class="descricao">{exp.descricao}</p>
+
+        {exp.contribuicoes && (
+          <div class="contribuicoes-box">
+            <h4>Principais contribuições:</h4>
+            <ul>
+              {exp.contribuicoes.map((item) => (
+                <li>{item}</li>
+              ))}
+            </ul>
+          </div>
+        )}
+
+        {exp.conclusao && <p class="conclusao">{exp.conclusao}</p>}
+
+        <div class="tags">
+          {exp.tecnologias.map((tech) => (
+            <span>{tech}</span>
+          ))}
+        </div>
+      </article>
+    ))}
+  </div>
+</section>
+
+<style>
+  .timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .exp-card {
+    background: var(--bg-card);
+    border: 1px solid #334155;
+    border-left: 4px solid var(--accent);
+    border-radius: 8px;
+    padding: 1.5rem;
+  }
+
+  .cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin-bottom: 0.9rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    color: var(--text);
+  }
+
+  .periodo {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.25rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    font-weight: 500;
+  }
+
+  .descricao,
+  .conclusao {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    line-height: 1.65;
+    margin-bottom: 1rem;
+  }
+
+  .contribuicoes-box {
+    margin: 1rem 0;
+    padding: 1rem;
+    background: rgba(15, 23, 42, 0.5);
+    border-radius: 6px;
+    border: 1px solid #1e293b;
+  }
+
+  h4 {
+    font-size: 0.95rem;
+    color: var(--text);
+    margin-bottom: 0.6rem;
+  }
+
+  ul {
+    padding-left: 1.25rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.45rem;
+  }
+
+  li {
+    color: var(--text-muted);
+    font-size: 0.92rem;
+    line-height: 1.55;
+  }
+
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1.25rem;
+  }
+
+  .tags span {
+    font-size: 0.75rem;
+    background: #0f172a;
+    color: var(--accent);
+    padding: 0.25rem 0.65rem;
+    border-radius: 4px;
+    border: 1px solid #1e293b;
+  }
+</style>

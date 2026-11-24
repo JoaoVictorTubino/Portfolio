@@ -1,0 +1,134 @@
+---
+const categoriasHabilidades = [
+  {
+    titulo: 'Linguagens',
+    itens: ['Java', 'Python', 'PHP', 'Flutter'],
+  },
+  {
+    titulo: 'Tecnologias & Frameworks',
+    itens: ['Spring Boot (Microsserviços, APIs RESTful)', 'SQL', 'Postman'],
+  },
+  {
+    titulo: 'Cloud & DevOps',
+    itens: ['AWS', 'Azure', 'Kubernetes', 'Docker', 'CI/CD (GitHub Actions, Jenkins)'],
+  },
+  {
+    titulo: 'Qualidade & Automação (QA)',
+    itens: ['JUnit', 'Mockito', 'RestAssured', 'Cypress', 'Selenium', 'Pytest'],
+  },
+  {
+    titulo: 'Metodologias Ágeis',
+    itens: ['Scrum', 'Kanban'],
+  },
+  {
+    titulo: 'Ferramentas',
+    itens: ['Git', 'VSCode', 'Figma', 'Canva', 'Gimp', 'Trello', 'Pacote Office'],
+  },
+];
+
+const areasExperiencia = [
+  'Engenharia de Software (Java / Spring)',
+  'QA Integrado & Automação de Testes',
+  'Arquitetura Cloud & DevOps (AWS / Azure)',
+  'Pipelines CI/CD & Conteinerização',
+  'Metodologias Ágeis (Scrum / Kanban)',
+];
+---
+
+<section id="sobre">
+  <h2>Sobre Mim</h2>
+  <p class="bio">
+    Engenheiro de Software com sólida experiência no desenvolvimento de sistemas robustos, escaláveis e de alta disponibilidade utilizando o ecossistema Java/Spring. 
+    Especializado na intersecção entre o código limpo, automação de testes de ponta a ponta (QA integrado) e cultura DevOps. 
+    Possuo forte domínio em arquiteturas Cloud (AWS e Azure), conteinerização e estruturação de pipelines de CI/CD eficientes para garantir entregas contínuas e seguras. 
+    Atuo com foco em metodologias ágeis (Scrum/Kanban), 
+    comunicação assertiva com stakeholders e alinhamento técnico aos objetivos de negócio para gerar impacto positivo e valor real aos usuários.
+  </p>
+
+  <h3>Áreas de Experiência</h3>
+  <ul class="areas">
+    {areasExperiencia.map((area) => <li>{area}</li>)}
+  </ul>
+
+  <h3>Habilidades Técnicas</h3>
+  <div class="grid-categorias">
+    {categoriasHabilidades.map((grupo) => (
+      <div class="categoria-card">
+        <h4>{grupo.titulo}</h4>
+        <ul class="skills">
+          {grupo.itens.map((skill) => <li>{skill}</li>)}
+        </ul>
+      </div>
+    ))}
+  </div>
+</section>
+
+<style>
+  .bio {
+    color: var(--text-muted);
+    line-height: 1.75;
+    font-size: 1.05rem;
+    margin-bottom: 2.5rem;
+  }
+
+  h3 {
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    color: var(--text);
+  }
+
+  .areas {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    list-style: none;
+    margin-bottom: 2.5rem;
+  }
+
+  .areas li {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    border: 1px solid rgba(56, 189, 248, 0.3);
+    padding: 0.45rem 1rem;
+    border-radius: 6px;
+    font-weight: 500;
+    font-size: 0.95rem;
+  }
+
+  .grid-categorias {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.25rem;
+  }
+
+  .categoria-card {
+    background: var(--bg-card);
+    border: 1px solid #334155;
+    border-radius: 8px;
+    padding: 1.25rem;
+  }
+
+  .categoria-card h4 {
+    color: var(--accent);
+    font-size: 1rem;
+    margin-bottom: 0.9rem;
+    border-bottom: 1px solid #334155;
+    padding-bottom: 0.5rem;
+  }
+
+  .skills {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+  }
+
+  .skills li {
+    background: var(--bg);
+    border: 1px solid #334155;
+    padding: 0.3rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    color: var(--text);
+  }
+</style>

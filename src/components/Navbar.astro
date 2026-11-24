@@ -1,0 +1,51 @@
+<header>
+  <nav>
+    <a href="#" class="logo">&lt;João Victor Tubino Martins /&gt;</a>
+    <ul>
+    <li><a href="#sobre">Sobre</a></li>
+    <li><a href="#experiencia">Experiência</a></li>
+    <li><a href="#formacao">Formação</a></li>
+    <li><a href="#projetos">Projetos</a></li>
+    <li><a href="#contato">Contato</a></li>
+    </ul>
+  </nav>
+</header>
+
+<style>
+  header {
+    position: sticky;
+    top: 0;
+    background: rgba(15, 23, 42, 0.9);
+    backdrop-filter: blur(8px);
+    border-bottom: 1px solid #1e293b;
+    z-index: 10;
+  }
+  nav {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 1rem 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .logo {
+    font-weight: bold;
+    font-size: 1.2rem;
+    color: var(--accent);
+    text-decoration: none;
+  }
+  ul {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+  }
+  a {
+    color: var(--text);
+    text-decoration: none;
+    font-size: 0.95rem;
+    transition: color 0.2s;
+  }
+  a:hover {
+    color: var(--accent);
+  }
+</style>

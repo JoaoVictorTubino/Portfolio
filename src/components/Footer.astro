@@ -1,0 +1,201 @@
+<footer id="contato">
+  <h2>Vamos conversar?</h2>
+  <p>Estou aberto a oportunidades, projetos ou troca de ideias sobre Engenharia de Software, QA e DevOps.</p>
+  
+  <div class="redes">
+    <button type="button" id="btn-abrir-email" class="btn-contato">E-mail</button>
+    <a href="https://github.com/JoaoVictorTubino" target="_blank" rel="noopener noreferrer" class="btn-contato">GitHub</a>
+    <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" class="btn-contato">LinkedIn</a>
+  </div>
+
+  <small>© 2026 João Victor Tubino Martins. Feito com Astro.</small>
+
+  <dialog id="modal-email">
+    <div class="modal-conteudo">
+      <h3>Entre em contato</h3>
+      <p>Você pode me enviar uma mensagem diretamente pelo endereço abaixo:</p>
+      
+      <div class="email-box">
+        <span id="texto-email">joaom8610@gmail.com</span>
+        <button type="button" id="btn-copiar" class="btn-copiar">Copiar</button>
+      </div>
+
+      <div class="modal-acoes">
+        <button type="button" id="btn-fechar-modal" class="btn-fechar">Fechar</button>
+      </div>
+    </div>
+  </dialog>
+</footer>
+
+<script>
+  const btnAbrir = document.getElementById('btn-abrir-email');
+  const modal = document.getElementById('modal-email') as HTMLDialogElement;
+  const btnFechar = document.getElementById('btn-fechar-modal');
+  const btnCopiar = document.getElementById('btn-copiar');
+  const textoEmail = document.getElementById('texto-email');
+
+  btnAbrir?.addEventListener('click', () => {
+    modal?.showModal();
+  });
+
+  btnFechar?.addEventListener('click', () => {
+    modal?.close();
+  });
+
+  modal?.addEventListener('click', (event) => {
+    if (event.target === modal) {
+      modal.close();
+    }
+  });
+
+  btnCopiar?.addEventListener('click', async () => {
+    if (!textoEmail) return;
+    await navigator.clipboard.writeText(textoEmail.textContent || '');
+    
+    const textoOriginal = btnCopiar.textContent;
+    btnCopiar.textContent = 'Copiado!';
+    btnCopiar.classList.add('copiado');
+    
+    setTimeout(() => {
+      btnCopiar.textContent = textoOriginal;
+      btnCopiar.classList.remove('copiado');
+    }, 2000);
+  });
+</script>
+
+<style>
+  footer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 4rem 1.5rem 2rem;
+    text-align: center;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 0.75rem;
+  }
+
+  p {
+    color: var(--text-muted);
+    margin-bottom: 1.5rem;
+  }
+
+  .redes {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .btn-contato {
+    background: transparent;
+    color: var(--text);
+    font-family: inherit;
+    font-size: 1rem;
+    text-decoration: none;
+    border: 1px solid #334155;
+    padding: 0.5rem 1.2rem;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .btn-contato:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+  }
+
+  small {
+    color: #64748b;
+  }
+
+  dialog {
+    margin: auto;
+    background: var(--bg-card);
+    color: var(--text);
+    border: 1px solid #334155;
+    border-radius: 10px;
+    padding: 0;
+    max-width: 440px;
+    width: 90%;
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.5);
+  }
+
+  dialog::backdrop {
+    background: rgba(15, 23, 42, 0.75);
+    backdrop-filter: blur(4px);
+  }
+
+  .modal-conteudo {
+    padding: 1.75rem;
+    text-align: center;
+  }
+
+  .modal-conteudo h3 {
+    color: var(--accent);
+    font-size: 1.35rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .modal-conteudo p {
+    font-size: 0.95rem;
+    margin-bottom: 1.25rem;
+  }
+
+  .email-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0.75rem;
+    background: var(--bg);
+    border: 1px solid #334155;
+    padding: 0.65rem 0.9rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+  }
+
+  #texto-email {
+    font-family: monospace;
+    font-size: 0.95rem;
+    color: var(--text);
+    user-select: all;
+  }
+
+  .btn-copiar {
+    background: var(--accent);
+    color: #0f172a;
+    border: none;
+    padding: 0.4rem 0.85rem;
+    border-radius: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: opacity 0.2s;
+  }
+
+  .btn-copiar:hover {
+    opacity: 0.9;
+  }
+
+  .btn-copiar.copiado {
+    background: #22c55e;
+    color: #0f172a;
+  }
+
+  .btn-fechar {
+    background: transparent;
+    color: var(--text-muted);
+    border: 1px solid #334155;
+    padding: 0.45rem 1.25rem;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+  }
+
+  .btn-fechar:hover {
+    color: var(--text);
+    border-color: var(--text-muted);
+  }
+</style>

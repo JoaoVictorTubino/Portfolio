@@ -1,0 +1,62 @@
+<section class="hero">
+  <span class="badge">Disponível para novos projetos</span>
+  <h1>Olá, eu sou <span>João Victor </span></h1>
+  <p>
+    Desenvolvedor de software focado em criar aplicações rápidas, acessíveis e bem estruturadas.
+  </p>
+  <div class="acoes">
+    <a href="#projetos" class="btn-primario">Ver Projetos</a>
+    <a href="#contato" class="btn-secundario">Entrar em Contato</a>
+  </div>
+</section>
+
+<style>
+  .hero {
+    min-height: 75vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+  }
+  .badge {
+    background: rgba(56, 189, 248, 0.1);
+    color: var(--accent);
+    padding: 0.35rem 0.75rem;
+    border-radius: 99px;
+    font-size: 0.85rem;
+    margin-bottom: 1rem;
+  }
+  h1 {
+    font-size: 3rem;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  h1 span {
+    color: var(--accent);
+  }
+  p {
+    color: var(--text-muted);
+    font-size: 1.15rem;
+    max-width: 600px;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+  }
+  .acoes {
+    display: flex;
+    gap: 1rem;
+  }
+  a {
+    padding: 0.75rem 1.5rem;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .btn-primario {
+    background: var(--accent);
+    color: #0f172a;
+  }
+  .btn-secundario {
+    border: 1px solid #334155;
+    color: var(--text);
+  }
+</style>
